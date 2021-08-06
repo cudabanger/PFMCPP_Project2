@@ -16,15 +16,11 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t) here: 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+char	
+short	
+int
+float
+double
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
     a) give each variable declaration an initial value
@@ -58,12 +54,50 @@ video: Chapter 2 - Part 3
 //2)
 void variableDeclarations()
 {
-    //example:
-    int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
-    
+    char nameFirstInitial = 'A';
+    char nameMiddleInitial = 'B';
+    char nameLastInitial = 'C';
+	
+    short sensorReadingRaw = 0x00AD;
+    short errorCode = -3;
+    short valueTwosComp = -3443;  
 
+    int channelNumber = 2;
+    int numSamples = 57889;
+    int weightPassengerLbs = 300;
+
+    float tempFreezer_C = -273.15f;
+    float geoElevation = -60.;
+    float weightPassenger = 350;
+
+    double checkingAccountBezos = 33000000000000.;
+    double checkingAccountMusk = 34000000000000.;
+    double checkingAccountMe = -3000.;
+
+    bool doThis = true;
+    bool exitLoop = false;
+    bool killThread = true;
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(nameFirstInitial,
+        nameMiddleInitial,
+        nameLastInitial,
+        sensorReadingRaw,
+        errorCode,
+        valueTwosComp,  
+        channelNumber,
+        numSamples,
+        weightPassengerLbs,
+        tempFreezer_C,
+        geoElevation,
+        weightPassenger,
+        checkingAccountBezos,
+        checkingAccountMusk,
+        checkingAccountMe,
+        doThis,
+        exitLoop,
+        killThread
+    ); //passing each variable declared to the ignoreUnused() function
+
 }
 
 /*
@@ -80,43 +114,75 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+void setOvenTemp(int desiredTemp)
+{ 
+    ignoreUnused(desiredTemp); 
+}
 /*
  2)
  */
-
+void setNumAudioChannels(int numChannels = 2)
+{ 
+    ignoreUnused(numChannels);
+}
 /*
  3)
  */
-
+float convertMidiNoteToFreq(int noteNumber)
+{ 
+    ignoreUnused(noteNumber);
+    return {};
+}
 /*
  4)
  */
-
+void createBPF(float filter_coef1, float filter_coef2, float filter_coef3)
+{ 
+    ignoreUnused(filter_coef1, filter_coef2, filter_coef3);
+} 
 /*
  5)
  */
-
+void setLoginAuthenticator(int authType = 0)
+{ 
+    ignoreUnused(authType);
+}
 /*
  6)
  */
-
+void setCurrentLocationLLA(float lat, float lon, float alt)
+{ 
+    ignoreUnused(lat, lon, alt);
+}
 /*
  7)
  */
-
+int getPitchWheelValue(int pitchWheelSelect = 0)
+{ 
+    ignoreUnused(pitchWheelSelect);
+    return {};
+}
 /*
  8)
  */
-
+void pointTelescope(float azimuth = 0, float elevation = 0)
+{ 
+    ignoreUnused(azimuth, elevation);
+}
 /*
  9)
  */
-
+void setCCDExposureTime(int integrationTimeSeconds = 2)
+{ 
+    ignoreUnused(integrationTimeSeconds);
+}
 /*
  10)
  */
-
+void setLaserPulseDutyCycle(int pulseDutyCycle = 50)
+{ 
+    ignoreUnused(pulseDutyCycle);
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -137,27 +203,27 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    setOvenTemp(350);
     //2)
-    
+    setNumAudioChannels(7);
     //3)
-    
+    auto freq = convertMidiNoteToFreq(60);
     //4)
-    
+    createBPF(34.565f, 56.245f, 13.543f);
     //5)
-    
+    setLoginAuthenticator(1);
     //6)
-    
+    setCurrentLocationLLA(-34.0045f, 73.4565f, 1024.f);
     //7)
-    
+    auto pitchWheel = getPitchWheelValue(0);
     //8)
-    
+    pointTelescope(24.56f, 37.4f);
     //9)
-    
+    setCCDExposureTime(10);
     //10)
+    setLaserPulseDutyCycle(75);
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, freq, pitchWheel);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
