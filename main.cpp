@@ -116,7 +116,7 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
  */
 void setOvenTemp(int desiredTemp)
 { 
-    ignoreUnused(desiredTemp); //passing each function parameter to the ignoreUnused() function
+    ignoreUnused(desiredTemp); 
 }
 /*
  2)
